@@ -18,7 +18,14 @@ CONFIG_LOCALVERSION =
 CPPFLAGS = -I libfdt -I .
 WARNINGS = -Wall -Wpointer-arith -Wcast-qual -Wnested-externs \
 	-Wstrict-prototypes -Wmissing-prototypes -Wredundant-decls -Wshadow
-CFLAGS = -g -Os -fPIC -Werror $(WARNINGS)
+
+CFLAGS += -nostdlib -nostartfiles -ffreestanding -Wall -Wextra -Wshadow
+CFLAGS += -std=gnu99
+CFLAGS += -I. -I..
+CFLAGS += -DBUILDING_RPIBOOT
+
+CC = arm-none-eabi-gcc
+AR = arm-none-eabi-ar
 
 BISON = bison
 LEX = flex
