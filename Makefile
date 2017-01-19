@@ -24,8 +24,10 @@ CFLAGS += -std=gnu99
 CFLAGS += -I. -I..
 CFLAGS += -DBUILDING_RPIBOOT
 
-CC = arm-none-eabi-gcc
-AR = arm-none-eabi-ar
+CFLAGS += -Wno-error
+
+CC = $(ARMCC)
+AR = $(ARMAR)
 
 BISON = bison
 LEX = flex
